@@ -16,8 +16,8 @@ Then run
 `python3 create_tweet.py`
 
 ## Resources
-[Twitter developer documentation](https://dev.twitter.com/)
+[Twitter developer documentation](https://dev.twitter.com)
 
 [python-twitter](https://github.com/bear/python-twitter)
 
-[Quotes on Design](http://quotesondesign.com/)
+[Programming Quotes API](http://quotes.stormconsultancy.co.uk/api)

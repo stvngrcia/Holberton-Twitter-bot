@@ -2,6 +2,7 @@
 import twitter
 import requests
 import os
+import time
 
 '''
     Simple script that will post a QOD on Tweeter
@@ -11,20 +12,19 @@ def qod():
     '''
         Quering api to get random quote
     '''
-    url = " http://quotesondesign.com/wp-json/posts?filter[orderby]=rand"
+    url = "http://quotes.stormconsultancy.co.uk/random.json"
     response = requests.get(url)
     quote = response.json()
-
-    author = quote[0]["title"]
-    text = quote[0]["content"]
-    # Removing p tags by removing first 3 and last 5 chars
-    text = text[3:][:-5]
+    author = quote["author"]
+    text = quote["quote"]
 
     # Constructing the message
     message = "{} -{}".format(text, author)
     # Checking if the message is longer than allowed or if it has unwanted char
-    if len(message) > 140 or "&#" in message:
+
+    if len(message) > 140:
         qod()
+
     else:
         return (message)
 
@@ -44,7 +44,8 @@ def post_status(api, message):
     '''
         Posting message
     '''
-    status = api.PostUpdate(message)
+    print(message)
+    #status = api.PostUpdate(message)
 
 
 
