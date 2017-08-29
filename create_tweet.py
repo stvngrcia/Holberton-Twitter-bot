@@ -21,12 +21,7 @@ def qod():
     # Constructing the message
     message = "{} -{}".format(text, author)
     # Checking if the message is longer than allowed or if it has unwanted char
-
-    if len(message) > 140:
-        qod()
-
-    else:
-        return (message)
+    return (message)
 
 def auth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET):
     '''
@@ -44,8 +39,9 @@ def post_status(api, message):
     '''
         Posting message
     '''
-    print(message)
-    #status = api.PostUpdate(message)
+    while (len(message) > 140):
+        message = qod()
+    status = api.PostUpdate(message)
 
 
 
